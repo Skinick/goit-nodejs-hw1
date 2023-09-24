@@ -17,7 +17,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     switch (action) {
       case "list":
         const contactsList = await contactsService.listContacts();
-        return console.log(contactsList);
+        return console.table(contactsList);
 
       case "get":
         const oneContact = await contactsService.getContactById(id);
@@ -30,6 +30,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
           phone,
         });
         return console.log(newContact);
+
       case "remove":
         const removeContact = await contactsService.removeContact(id);
         return console.log(removeContact);
